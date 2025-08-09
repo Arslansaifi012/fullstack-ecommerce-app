@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+
+*{
+    font-family: Outfit;
+}
 .active{
     background-color: #ffebf5;
     border-color: #c586A5;
