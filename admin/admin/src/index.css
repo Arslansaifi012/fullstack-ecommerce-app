@@ -4,7 +4,12 @@
 *{
     font-family: Outfit;
 }
+
+select,input,textarea{
+    border: 1px solid ;
+} 
+
 .active{
     background-color: #ffebf5;
     border-color: #c586A5;
-}
+}  
