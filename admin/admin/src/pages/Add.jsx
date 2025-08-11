@@ -162,7 +162,7 @@ const Add =  ({token}) =>{
             </div>
 
             <div className="flex mt-2 gap-2">
-                <input onChange={() => setBestseller((prev) => !prev)} checked={bestseller} type="checkbox" id="bestseller"/>
+                <input onChange={() => setBestseller((prev) => !prev)} checked={bestSeller} type="checkbox" id="bestseller"/>
                 <label className="cursor-pointer" htmlFor="bestseller">Add to bestseller</label>
             </div>
 
