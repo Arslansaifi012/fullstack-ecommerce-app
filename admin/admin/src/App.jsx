@@ -13,6 +13,8 @@ export const backendUrl = import.meta.env.VITE_BACKEND_URL ;
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+export const currency = "$" ;
+
 const App = () =>{
 
 
