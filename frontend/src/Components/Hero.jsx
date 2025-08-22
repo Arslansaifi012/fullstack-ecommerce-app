@@ -21,7 +21,6 @@ const Hero = () =>{
 
            <img className="w-full sm:w-1/2 sm:h-[600px] object-fill" src={assets.banner} alt="" />
 
-
         </div>
     )
 } ;
