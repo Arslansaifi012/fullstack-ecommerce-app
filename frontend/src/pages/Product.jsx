@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../Context/ShopContext";
 import { assets } from "../assets/assets";
+import RelatedProduct from "../Components/RelatedProduct";
 
 const Product = () =>{
 
@@ -10,6 +11,7 @@ const Product = () =>{
     const [productData, setPorductData] = useState() ;
     const [image, setImage] = useState('') ;
     const [size, setSize] = useState('') ;
+
 
     const fetchProductData = () =>{
 
@@ -88,9 +90,10 @@ const Product = () =>{
                     <p>An e-commerce site is an online platform or digital storefront enabling businesses to sell products, services, or digital goods to customers via the internet. Key features typically include a product catalog, shopping cart, secure payment gateways, and customer accounts for managing orders and information. These platforms facilitate transactions, offering a convenient alternative or complement to physical retail. E-commerce leverages technologies like mobile commerce and internet marketing to reach consumers through websites, mobile apps, and even social media, catering to various markets including business-to-consumer (B2C) and business-to-business (B2B) transactions. </p>
                     <p>E-commerce, or electronic commerce, is the process of buying and selling goods and services over the internet. It involves the exchange of products or services between businesses, consumers, or both. E-commerce business is facilitated through platforms such as websites, mobile apps, or online marketplaces.</p>
                 </div>
-
             </div>
 
+            <RelatedProduct category={productData.category} subCategory={productData.subCategory} />
+        
         </div>
     ) : <div className="opacity-0"></div>
 } ;
