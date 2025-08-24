@@ -5,7 +5,7 @@ import Title from "../Components/Title";
 import ProductItem from "../Components/ProductItem";
 
 const Collection = () =>{
-    const {products} = useContext(ShopContext) ;
+    const {products, search, showSearch} = useContext(ShopContext) ;
     // console.log(products);
     
     const [showFilter, setShowfilter] = useState(false) ;
@@ -35,6 +35,12 @@ const Collection = () =>{
 
     const applyFilter = () =>{
         let productsCopy = products.slice() ;
+
+        if (showSearch && search) {
+
+            productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase())) ;
+            
+        }
        
         if (category.length > 0) {
 
@@ -46,7 +52,6 @@ const Collection = () =>{
             productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory)) ;
         
         }
-        // console.log(subCategory,'ye bhi dhdlm');
     
         setFilterProducts(productsCopy) ;
     }
@@ -75,7 +80,7 @@ const Collection = () =>{
         
         applyFilter() ;
       
-    },[category, subCategory]) ;
+    },[category, subCategory, search, showSearch]) ;
 
 
     useEffect(()=>{
@@ -160,7 +165,7 @@ const Collection = () =>{
 
                     {filterProducts && filterProducts.length > 0 ?  filterProducts.map((item, ind) =>(
                          
-                            <ProductItem key={ind} name={item.name} id={item.id} price={item.price} image={item.image} />
+                            <ProductItem key={ind} name={item.name} id={item._id} price={item.price} image={item.image} />
                         )):(
                             <p>Not Available : -</p>
                         )
