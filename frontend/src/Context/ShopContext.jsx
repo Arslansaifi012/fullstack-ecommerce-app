@@ -119,14 +119,21 @@ const ShopContextProvider = (props) =>{
             console.log(error.message);
             
         }
-        
     }
 
     useEffect(()=>{
-
         getproductData() ;
+    },[]) ;
+
+    useEffect(() =>{
+
+        if (!token && localStorage.getItem('token')) {
+            setToken(localStorage.getItem('token'))
+        }
 
     },[]) ;
+
+
 
     const value = {
         products , Currency , deliveryFee,
