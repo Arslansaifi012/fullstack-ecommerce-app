@@ -1,11 +1,34 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ShopContext } from "../Context/ShopContext";
+import axios from "axios";
 
 const Login = () => {
 
+    const {token, setToken, navigate, backendUrl} = useContext(ShopContext) ;
     const [currentState, setCurrentState]  = useState('Login') ;
+    const [name, setName] = useState('') ;
+    const [email, setEmail] = useState('') ;
+    const [password, setPassword] = useState('') ;
 
-    const onSubmitHandler = (e) =>{
+    const onSubmitHandler = async (e) =>{
         e.preventDefault() ;
+
+        try {
+            console.log(backendUrl);
+            
+           if (currentState === 'Sign Up') {
+
+            const response = await axios.post(backendUrl + '/api/user/register',{name,email,password}) ;
+            console.log(response);
+            
+           }else {
+
+           }
+                        
+        } catch (error) {
+            console.log(error.message);
+            
+        }
     }
 
     return (
@@ -15,9 +38,9 @@ const Login = () => {
                 <hr className="border-none h-[1.5px] w-8 bg-gray-800"/>
             </div>
 
-           {currentState === 'Login' ? '' : <input type="text" className="w-full px-3 py-2 border border-gray-800" placeholder="Name" required />} 
-            <input type="email" className="w-full px-3 py-2 border border-gray-800" placeholder="Email" required />
-            <input type="password" className="w-full px-3 py-2 border border-gray-800" placeholder="Password" required />
+           {currentState === 'Login' ? '' : <input type="text" onChange={(e)=>setName(e.target.value)} value={name} className="w-full px-3 py-2 border border-gray-800" placeholder="Name" required />} 
+            <input type="email"  onChange={(e)=>setEmail(e.target.value)} value={email} className="w-full px-3 py-2 border border-gray-800" placeholder="Email" required />
+            <input type="password"  onChange={(e)=>setPassword(e.target.value)} value={password} className="w-full px-3 py-2 border border-gray-800" placeholder="Password" required />
 
             <div className="w-full flex justify-between text-sm mt-[8px]">
                 <p className="cursor-pointer">Forgot your password?</p>

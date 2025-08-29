@@ -5,7 +5,7 @@ import Title from "../Components/Title";
 import ProductItem from "../Components/ProductItem";
 
 const Collection = () =>{
-    const {products, search, showSearch, updateQuantity} = useContext(ShopContext) ;
+    const {products, search, showSearch} = useContext(ShopContext) ;
     // console.log(products);
     
     const [showFilter, setShowfilter] = useState(false) ;
@@ -80,7 +80,7 @@ const Collection = () =>{
         
         applyFilter() ;
       
-    },[category, subCategory, search, showSearch]) ;
+    },[category, subCategory, search, showSearch, products]) ;
 
 
     useEffect(()=>{

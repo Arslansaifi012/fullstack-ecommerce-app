@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../Context/ShopContext";
 import Title from "./Title";
 import ProductItem from "./ProductItem";
+import Login from "../pages/Login";
 
 const BestSeller = () =>{
 
@@ -12,13 +13,11 @@ const BestSeller = () =>{
     const [BestSeller, setBestseller] = useState([]);
 
     useEffect(()=>{
-        const bestProduct = products.filter((item) => {return (item.bestseller)} ) ;
- 
-     
+        const bestProduct = products.filter((item) => {return (item.bestSeller)} ) ;
 
         setBestseller(bestProduct.slice(0,5)) ;
         
-    }, [])
+    }, [products])
 
     
     return (
