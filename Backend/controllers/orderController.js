@@ -40,8 +40,17 @@ const placeOrderRazorpay = (req, res) =>{
 
 };
 
+// All Order data for admin panel
+const allOrders = async (req, res) =>{
 
-const allOrders = (req, res) =>{
+    try {
+        const allOrders = await orderModel.find({}) ;
+        res.json({success:true,allOrders})
+        
+    } catch (error) {
+        console.log(error.message);
+        res.json({success:true, message:error.message}) ;
+    }
 
 };
 
@@ -63,7 +72,19 @@ const userOrders = async(req, res) =>{
 }; 
 
 
-const updateStatus = (req, res) =>{
+const updateStatus = async(req, res) =>{
+
+    try {
+        const {orderId, status} = req.body ;
+
+        await orderModel.findByIdAndUpdate(orderId, {status}) ;
+        res.json({success:true, message:'status Updated'});
+        
+    } catch (error) {
+        console.log(error.message);
+        res.json({success:false, message:error.message}) ;
+        
+    }
 
 } ;
 

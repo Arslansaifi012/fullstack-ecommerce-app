@@ -69,13 +69,13 @@ const Order = () => {
                                 <img className="sm:w-20 w-16" src={item.image[0]} alt="" />
                                 <div>
                                     <p className="sm:text-base font-medium">{item.className}</p>
-                                    <div className="flex items-center gap-3 mt-2 text-base text-gray-700 ">
+                                    <div className="flex items-center gap-3 mt-1 text-base text-gray-700 ">
                                         <p className="text-lg">{Currency}{item.price}</p>
                                         <p>Quantity: {item.quantity}</p>
                                         <p>Size : {item.size}</p>
                                     </div>
-                                    <p className="mt-2">Date: <span className="text-gray-400">{new Date(item.date).toDateString()}</span></p>
-                                    <p className="mt-2">payment: <span className="text-gray-400">{item.paymentMethod}</span></p>
+                                    <p className="mt-1">Date: <span className="text-gray-400">{new Date(item.date).toDateString()}</span></p>
+                                    <p className="mt-1">payment: <span className="text-gray-400">{item.paymentMethod}</span></p>
                                 </div>
                             </div>
 
