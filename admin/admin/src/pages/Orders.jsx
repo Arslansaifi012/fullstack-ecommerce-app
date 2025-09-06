@@ -19,7 +19,7 @@ const Order = ({token}) =>{
             const response = await axios.post(backendUrl + '/api/order/list',{},{headers:{token}}) ;
             if(response.data.success){
                
-                setOrders(response.data.allOrders) ;
+                setOrders(response.data.allOrders.reverse()) ;
             }else{
                 toast.error(response.data.message) ;
             }
