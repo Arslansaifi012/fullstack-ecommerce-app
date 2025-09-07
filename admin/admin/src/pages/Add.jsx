@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import upload from "../assets/upload.png"
+import upload from "../assets/upload_area.png"
 import axios from "axios"; 
 import { backendUrl } from "../App";
 import { toast } from "react-toastify";
@@ -77,22 +77,22 @@ const Add =  ({token}) =>{
                 <p className="mb-2 text-2xl">upload Image</p>
                 <div className="flex gap-2">
                     <label htmlFor="image1">
-                        <img className="w-20" src={!image1 ? upload : URL.createObjectURL(image1)} alt="" />
+                        <img className="w-25" src={!image1 ? upload : URL.createObjectURL(image1)} alt="" />
                         <input onChange={(e) =>{setImage1(e.target.files[0])}} type="file" id="image1" hidden />
                     </label>
 
                       <label htmlFor="image2">
-                        <img className="w-20" src={!image2 ? upload : URL.createObjectURL(image2)} alt="" />
+                        <img className="w-25" src={!image2 ? upload : URL.createObjectURL(image2)} alt="" />
                         <input onChange={(e) =>{setImage2(e.target.files[0])}} type="file" id="image2" hidden />
                     </label>
 
                       <label htmlFor="image3">
-                        <img className="w-20" src={!image3 ? upload : URL.createObjectURL(image3)} alt="" />
+                        <img className="w-25" src={!image3 ? upload : URL.createObjectURL(image3)} alt="" />
                         <input onChange={(e) =>{setImage3(e.target.files[0])}} type="file" id="image3" hidden />
                     </label>
 
                       <label htmlFor="image4">
-                        <img className="w-20" src={!image4 ? upload : URL.createObjectURL(image4)} alt="" />
+                        <img className="w-25" src={!image4 ? upload : URL.createObjectURL(image4)} alt="" />
                         <input onChange={(e) =>{setImage4(e.target.files[0])}} type="file" id="image4" hidden />
                     </label>
 
