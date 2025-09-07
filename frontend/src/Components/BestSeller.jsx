@@ -7,9 +7,7 @@ import Login from "../pages/Login";
 const BestSeller = () =>{
 
     const {products} =useContext(ShopContext) ;
-  
-   
-    
+
     const [BestSeller, setBestseller] = useState([]);
 
     useEffect(()=>{
