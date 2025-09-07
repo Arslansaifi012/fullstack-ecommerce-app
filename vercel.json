@@ -11,6 +11,10 @@
     {
       "src": "frontend/package.json",
       "use": "@vercel/static-build"
+    },
+    {
+      "src": "admin/package.json",
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
@@ -19,8 +23,12 @@
       "dest": "/backend/server.js"
     },
     {
+      "src": "/admin/(.*)",
+      "dest": "/admin/dist/index.html"    
+    },
+    {
       "src": "/(.*)",
-      "dest": "/frontend/build/index.html"
+      "dest": "/frontend/dist/index.html"
     }
   ]
 }
