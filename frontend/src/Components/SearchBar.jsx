@@ -11,7 +11,6 @@ const SearchBar = () =>{
     const [visible, setVisible] = useState(false) ;
 
     useEffect(()=>{
-        
         if(location.pathname.includes('collection')){
  
             setVisible(true) ;

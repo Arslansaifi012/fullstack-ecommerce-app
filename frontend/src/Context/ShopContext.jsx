@@ -11,7 +11,7 @@ import axios from 'axios' ;
 
 export const ShopContext = createContext({
      getCartCount: () => 0,   
-  setShowSearch: () => {}
+
 }) ;
 
 const ShopContextProvider = (props) =>{
