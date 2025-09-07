@@ -17,6 +17,9 @@ const Collection = () =>{
 
     const toggleCategory = (e) =>{
 
+        console.log(products);
+        
+
         if (category.includes(e.target.value)) {
             setCategory(prev => prev.filter((item) => item !== e.target.value)) ;
         }else{ 
@@ -25,15 +28,21 @@ const Collection = () =>{
     }
 
     const toggleSubCategory = (e) =>{
-        if (subCategory.includes(e.target.value)) {
-            setsubCategory(prev => prev.filter((item) => item !== e.target.value)) ;
+        // console.log(e.target.value);
+         const value = e.target.value;
+         console.log(value);
+        
+        if (subCategory.includes(value)) {
+            setsubCategory(prev => prev.filter((item) => item !== value)) ;
             
         }else{
-            setsubCategory(prev => [...prev,e.target.value]) ;
+            setsubCategory(prev => [...prev,value]) ;
         }
     }
 
     const applyFilter = () =>{
+        console.log(products);
+        
         let productsCopy = products?.slice() ;
 
         if (showSearch && search) {
@@ -49,7 +58,10 @@ const Collection = () =>{
         }
 
         if (subCategory.length > 0) {
-            productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory)) ;
+            productsCopy = productsCopy.filter(item =>
+    subCategory
+      .map(val => (val ? val.toString().toLowerCase() : ''))
+      .includes(item.subCategory ? item.subCategory.toString().toLowerCase() : '')) ;
         
         }
     

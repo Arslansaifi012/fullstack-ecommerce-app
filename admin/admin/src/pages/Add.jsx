@@ -21,8 +21,10 @@ const Add =  ({token}) =>{
        const [subCategory, setsubCategory] = useState("TopWear") ;
        const [ bestSeller, setBestseller] = useState(false) ;
        const [sizes, setSizes] = useState([]) ;
+       const [loadingAnime, setLoadingAnime] = useState(false)
 
        const onsubmitHandler = async (e) =>{
+        setLoadingAnime(true) ;
         e.preventDefault() ;
 
        console.log(backendUrl + "/api/product/add");
@@ -48,9 +50,8 @@ const Add =  ({token}) =>{
             const response = await axios.post(backendUrl + "/api/product/add", formData, {headers:{token}}) ;
             
             if (response.data.success) {
-
+              
                 toast.success(response.data.message) ;
-
                 setName('');
                 setDescription('');
                 setImage1(false);
@@ -58,6 +59,8 @@ const Add =  ({token}) =>{
                 setImage3(false);
                 setImage4(false);
                 setPrice('');
+                setLoadingAnime(false) ;
+                
             }else{
                 toast.error(response.data.message)
             }
@@ -123,9 +126,9 @@ const Add =  ({token}) =>{
                 <div>
                     <p className="mb-2">Sub Category</p>
                     <select onChange={(e) => setsubCategory(e.target.value)} className="w-full px-3 py-2">
-                        <option value="TopWear">TopWear</option>
-                        <option value="BootomWear">BootomWear</option>
-                        <option value="WinterWear">WinterWear</option>
+                        <option value="TopWear">Topwear</option>
+                        <option value="BootomWear">Bottomwear</option>
+                        <option value="WinterWear">Winterwear</option>
                     </select>
                 </div>
 
@@ -166,7 +169,7 @@ const Add =  ({token}) =>{
                 <label className="cursor-pointer" htmlFor="bestseller">Add to bestseller</label>
             </div>
 
-            <button type="submit" className="w-28 py-3 mt-4 bg-black text-white cursor-pointer">ADD</button>
+            <button type="submit" className={`${loadingAnime ? "w-28 py-3 mt-4 bg-gray-400 text-white cursor-pointe" : "w-28 py-3 mt-4 bg-black text-white cursor-pointe"}`}>ADD</button>
 
         </form>
     )
